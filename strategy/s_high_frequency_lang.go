@@ -102,6 +102,7 @@ func (s *StrategyHighFrequencyLang) Launch() {
 		depth, err := s.trader.GetDepth(10, pair)
 		if err != nil {
 			log.Println(err.Error())
+			continue
 		}
 
 		//depth, ok := market.GetCurrentDepth(syB + syA)
@@ -116,6 +117,9 @@ func (s *StrategyHighFrequencyLang) Launch() {
 		//}
 
 		//ask1 = depth.Tick.Asks[0][0]
+		if len(depth.BidList) <= 0 {
+			continue
+		}
 		bid1 = depth.BidList[0].Price
 
 		log.Println(bid1)
