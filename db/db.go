@@ -15,7 +15,7 @@ var db *gorm.DB
 
 func InitDB() {
 	sqlc := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=true&loc=Local",
-		"root", "root", "127.0.0.1", "3306", "hamal")
+		"root", "", "127.0.0.1", "3306", "hamal")
 	var err error
 	db, err = gorm.Open("mysql", sqlc)
 	if err != nil {

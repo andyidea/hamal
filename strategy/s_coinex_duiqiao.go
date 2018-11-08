@@ -11,8 +11,8 @@ import (
 	"math"
 
 	"github.com/jinzhu/gorm"
-	"github.com/leek-box/GoEx"
-	"github.com/leek-box/GoEx/coinex"
+	"github.com/nntaoli-project/GoEx"
+	"github.com/nntaoli-project/GoEx/coinex"
 	"hamal/db"
 	"hamal/models"
 	"net/http"

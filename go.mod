@@ -17,6 +17,7 @@ require (
 	github.com/leek-box/sheep v0.0.0-20180901040650-72c7e6cacfcd
 	github.com/leizongmin/huobiapi v1.0.6 // indirect
 	github.com/mattn/go-isatty v0.0.4 // indirect
+	github.com/nntaoli-project/GoEx v0.0.0-20181107090409-f0b92a441abf
 	github.com/pkg/errors v0.8.0 // indirect
 	github.com/ugorji/go/codec v0.0.0-20180831062425-e253f1f20942 // indirect
 	gopkg.in/go-playground/validator.v8 v8.18.2 // indirect

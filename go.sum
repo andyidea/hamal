@@ -30,6 +30,8 @@ github.com/leizongmin/huobiapi v1.0.6 h1:U8xCozn5lSIrn37nW96fTjA0xMDuRTrCmIxblCO
 github.com/leizongmin/huobiapi v1.0.6/go.mod h1:RAoP+pk1mjxD35lvhUc6xGrccpeKCmHVYGeAYgpFKgI=
 github.com/mattn/go-isatty v0.0.4 h1:bnP0vzxcAdeI1zdubAl5PjU6zsERjGZb7raWodagDYs=
 github.com/mattn/go-isatty v0.0.4/go.mod h1:M+lRXTBqGeGNdLjl/ufCoiOlB5xdOkqRJdNxMWT7Zi4=
+github.com/nntaoli-project/GoEx v0.0.0-20181107090409-f0b92a441abf h1:ysA3sOX3fJHbf8n/QbW84IQtSHUsANJU0XfhrPC1boc=
+github.com/nntaoli-project/GoEx v0.0.0-20181107090409-f0b92a441abf/go.mod h1:ze3baaMG59EjqNH5kLe2GyYprfs27Ch30Xl+PTQe014=
 github.com/pkg/errors v0.8.0 h1:WdK/asTD0HN+q6hsWO3/vpuAkAr+tw6aNJNDFFf0+qw=
 github.com/pkg/errors v0.8.0/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/ugorji/go/codec v0.0.0-20180831062425-e253f1f20942 h1:CZORS/4d6i+5FKSAtbRIjlElV2BAFYv/bokcaEVUimQ=
