@@ -48,17 +48,6 @@ func (s *StrategyCoinEXDuiQiao) Loop() {
 			continue
 		}
 
-		full, err := s.CheckTradeLimit()
-		if err != nil {
-			log.Println(err.Error())
-			continue
-		}
-
-		if full {
-			log.Println("该小时已达上限")
-			continue
-		}
-
 		var cetSymbol = goex.Currency{"CET", ""}
 		var coinSymbol = goex.BTC
 		var currencySymbol = goex.USDT
@@ -316,52 +305,6 @@ func (s *StrategyCoinEXDuiQiao) SellCet() {
 			break
 		}
 	}
-
-}
-
-//对账
-func (s *StrategyCoinEXDuiQiao) CheckTradeLimit() (bool, error) {
-
-	md, err := s.trader.GetMiningDifficulty()
-	if err != nil {
-		log.Println(err.Error())
-		return false, err
-	}
-
-	var params db.GetStrategyInstanceRecardsParams
-	params.StrategyInstanceID = s.StrategyInstanceID
-
-	recards, err := db.GetStrategyInstanceRecards(&params)
-	if err != nil {
-		log.Println(err.Error())
-		return false, err
-	}
-
-	var now = time.Now()
-	var yearDay = now.YearDay()
-	var hour = time.Now().Hour()
-
-	var feeAmount float64
-
-	for _, recard := range recards {
-		orderTime := recard.OrderTime
-
-		if yearDay != orderTime.YearDay() || hour != orderTime.Hour() {
-			continue
-		}
-		if recard.OrderStatus == goex.ORDER_FINISH || recard.OrderStatus == goex.ORDER_PART_FINISH {
-
-			feeAmount += recard.Fee
-		}
-	}
-
-	log.Println("本小时已挖到cet:", feeAmount, ". 总量：", md.Difficulty)
-
-	if feeAmount > md.Difficulty {
-		return true, nil
-	}
-
-	return false, nil
 
 }
 

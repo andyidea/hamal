@@ -62,8 +62,8 @@ func AddOrUpdateSymbol(s *models.Symbol) error {
 		if err := db.Create(s).Error; err != nil {
 			return err
 		}
-		market.HuobiAPI.SubscribeDepth(s.ID)
-		market.HuobiAPI.SubscribeDetail(s.ID)
+		//market.HuobiAPI.SubscribeDepth(s.ID)
+		//market.HuobiAPI.SubscribeDetail(s.ID)
 	} else {
 		symbol.Name = s.Name
 		symbol.QuoteCurrencyID = s.QuoteCurrencyID
