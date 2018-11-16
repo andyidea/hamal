@@ -7,10 +7,11 @@ import (
 )
 
 type Config struct {
-	ApiKey    string  `json:"api_key"`
-	ApiSecret string  `json:"api_secret"`
-	Interval  float64 `json:"interval"`
-	Amount    float64 `json:"amount"`
+	ApiKey        string  `json:"api_key"`
+	ApiSecret     string  `json:"api_secret"`
+	Interval      float64 `json:"interval"`
+	Amount        float64 `json:"amount"`
+	PrincipalUsdt float64 `json:"principal_usdt"`
 }
 
 var Instance Config

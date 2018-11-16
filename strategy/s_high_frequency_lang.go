@@ -26,10 +26,11 @@ type StrategyHighFrequencyLang struct {
 	StrategyInstanceID uint
 	UserID             uint
 	models.Strategy
-	stop     bool
-	interval float64
-	amount   float64
-	trader   *huobi.HuoBiPro
+	stop          bool
+	interval      float64
+	amount        float64
+	trader        *huobi.HuoBiPro
+	PrincipalUsdt float64
 }
 
 func (s *StrategyHighFrequencyLang) Init(si *models.StrategyInstance) {
@@ -78,6 +79,9 @@ func (s *StrategyHighFrequencyLang) Launch() {
 			currencySymbol, util.Float2String(balance.SubAccounts[currencySymbol].Amount), "冻结余额：", util.Float2String(balance.SubAccounts[currencySymbol].ForzenAmount),
 			coinSymbol, util.Float2String(balance.SubAccounts[coinSymbol].Amount), "冻结余额：", util.Float2String(balance.SubAccounts[coinSymbol].ForzenAmount))
 
+		profit := (balance.SubAccounts[coinSymbol].Amount+balance.SubAccounts[coinSymbol].ForzenAmount)*bid1 + balance.SubAccounts[currencySymbol].Amount + balance.SubAccounts[currencySymbol].ForzenAmount - s.PrincipalUsdt
+
+		log.Println(pair, "本金：", s.PrincipalUsdt, "盈利：", profit)
 		unfinishOrders, err := s.trader.GetUnfinishOrders(pair)
 		if err != nil {
 			log.Println(err.Error())
@@ -197,6 +201,7 @@ func NewStrategyHighFrequencyLang2(c *config.Config) (*StrategyHighFrequencyLang
 
 	s.interval = c.Interval
 	s.amount = c.Amount
+	s.PrincipalUsdt = c.PrincipalUsdt
 
 	_client := http.DefaultClient
 	transport := &http.Transport{

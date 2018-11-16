@@ -2,5 +2,6 @@
   "api_key":"x",
   "api_secret":"x",
   "interval":50,
-  "amount":0.005
+  "amount":0.005,
+  "principal_usdt":723
 }
